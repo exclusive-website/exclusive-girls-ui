@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { FaArrowRight, FaArrowLeft, FaMapPin } from "react-icons/fa6";
 
-interface CardProps {
+export interface CardProps {
   id: string;
   name: string;
   age: number;
@@ -22,6 +23,11 @@ interface CardProps {
 export default function Card(props: CardProps) {
   const [hovered, setHovered] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const router = useRouter();
+
+    const goToModelPreview = () => {
+        router.push(`/model-preview/${props.id}`);
+    }
 
   const {
     name,
@@ -34,7 +40,6 @@ export default function Card(props: CardProps) {
     description,
   } = props;
 
-  // Handlers for arrow navigation
   const prevImage = (e: React.MouseEvent) => {
     e.stopPropagation();
     setCurrentImageIndex((currentImageIndex - 1 + image.length) % image.length);
@@ -87,23 +92,21 @@ export default function Card(props: CardProps) {
           <FaMapPin className="text-light-2 w-4 h-4 mr-2" />
           <p className="text-regular">{location}</p>
         </div>
-        <p className="text-sm">
-          {aviailable ? (
-            <div className="flex p-2 bg-white rounded-full">
-              <span className="rounded-full bg-brand w-[16px] h-[16px] mr-2"></span>
-              <p className="font-parkinsans text-xs text-light text-black">
-                Dostupná
-              </p>
-            </div>
-          ) : (
-            <div className="flex p-2 bg-white rounded-full">
-              <span className="rounded-full bg-light-2 border border-text-gray1 w-[16px] h-[16px] mr-2"></span>
-              <p className="font-parkinsans text-xs text-light text-black">
-                Nedostupná
-              </p>
-            </div>
-          )}
-        </p>
+        {aviailable ? (
+        <div className="flex p-2 bg-white rounded-full">
+            <span className="rounded-full bg-brand w-[16px] h-[16px] mr-2"></span>
+            <p className="font-parkinsans text-xs text-light text-black">
+            Dostupná
+            </p>
+        </div>
+        ) : (
+        <div className="flex p-2 bg-white rounded-full">
+            <span className="rounded-full bg-light-2 border border-text-gray1 w-[16px] h-[16px] mr-2"></span>
+            <p className="font-parkinsans text-xs text-light text-black">
+            Nedostupná
+            </p>
+        </div>
+        )}
       </div>
 
       {hovered && (
@@ -153,7 +156,8 @@ export default function Card(props: CardProps) {
           </div>
 
           <div className="absolute bottom-4 left-4 right-4 z-30">
-            <button className="w-full bg-brand hover:cursor-pointer text-white py-3 rounded-lg font-bold transition">
+            <button className="w-full bg-brand hover:cursor-pointer text-white py-3 rounded-lg font-bold transition"
+              onClick={goToModelPreview}>
               Zobraziť
             </button>
           </div>
