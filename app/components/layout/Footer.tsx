@@ -2,6 +2,7 @@
 
 import { FaUser } from "react-icons/fa";
 import Button from "../micros/Button";
+import ToggleSwitch from "../micros/ToggleSwitch";
 
 const regions = {
   CZ: [
@@ -139,6 +140,14 @@ export default function Footer() {
                 hasIcon={true}
                 icon={<FaUser/>}
               />
+
+<ToggleSwitch
+  id="dark-mode"
+  defaultChecked={true}
+  onToggle={(val) => console.log(val)}
+  label="Dark Mode"
+/>
+
             </div>
           </div>
 
