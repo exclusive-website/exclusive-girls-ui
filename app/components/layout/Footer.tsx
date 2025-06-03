@@ -2,7 +2,6 @@
 
 import { FaUser } from "react-icons/fa";
 import Button from "../micros/Button";
-import Input from "../micros/Input";
 
 const regions = {
   CZ: [
@@ -115,6 +114,32 @@ export default function Footer() {
                 onClick={() => console.log("Primary button clicked")}
                 text="Pridať inzerát"
                 type="primary"
+                hasIcon={true}
+                icon={<FaUser/>}
+              />
+              <Button
+                onClick={() => console.log("Primary button clicked")}
+                type="primary"
+                hasIcon={true}
+                icon={<FaUser/>}
+              />
+              <Button
+                onClick={() => console.log("Primary button clicked")}
+                type="secondary"
+                hasIcon={true}
+                icon={<FaUser/>}
+              />
+              <Button
+                onClick={() => console.log("Primary button clicked")}
+                type="primaryOutline"
+                hasIcon={true}
+                icon={<FaUser/>}
+              />
+              <Button
+                onClick={() => console.log("Primary button clicked")}
+                type="navbar"
+                hasIcon={true}
+                icon={<FaUser/>}
               />
             </div>
           </div>
