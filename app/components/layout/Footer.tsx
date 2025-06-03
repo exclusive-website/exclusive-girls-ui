@@ -110,14 +110,14 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 border-b-text-gray-4">
-            <p className="font-semibold font-parkinsans px-2 md:px-4 text-sm text-white border-r-2 border-r-white text-center">
+          <div className="grid grid-cols-3 md:flex py-8 border-b-text-gray-4">
+            <p className="font-semibold font-parkinsans px-4 text-sm text-white border-r-2 border-r-white text-center">
               Všeobecné obchodné podmienky
             </p>
-            <p className="font-semibold font-parkinsans px-2 md:px-4 text-sm text-white border-r-2 border-r-white text-center">
+            <p className="font-semibold font-parkinsans px-4 text-sm text-white border-r-2 border-r-white text-center">
               Podmienky registrácie
             </p>
-            <p className="font-semibold font-parkinsans px-2 md:px-4 text-sm text-white text-center">
+            <p className="font-semibold font-parkinsans px-4 text-sm text-white ">
               Právna doložka
             </p>
           </div>
