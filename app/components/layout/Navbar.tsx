@@ -21,35 +21,28 @@ const Navbar = () => {
           <img
             src="/logo_exclusive-girls.svg"
             alt="Logo"
-            className="h-[32px]"
           />
         </Link>
 
-        <div className="flex items-center gap-[4px]">
+        <div className="flex items-center">
           {/* Desktop links - hidden on mobile */}
-          <div className="hidden sm:flex flex-row gap-[4px] items-center">
-            <Link
-              href="/"
-              className="text-white hover:text-gray-300 font-parkinsans font-bold flex items-center gap-[4px]"
-            >
-              <img src="/icon_heart.svg" className="w-[24px] h-[24px]" />
-              <span className="text-[16px]">Obľúbené inzeráty</span>
-            </Link>
+          <div className="hidden sm:flex flex-row items-center">
 
-            <Link
-              href="/"
-              className="text-white px-[24px] hover:text-gray-300 font-parkinsans font-bold flex items-center gap-[4px]"
-            >
-              <img src="/icon_user.svg" className="w-[24px] h-[24px]" />
-              <span>Prihlásiť sa</span>
-            </Link>
+            <Button 
+            type="navbar"
+            text="Obľúbené inzeráty"
+            onClick={() => {}}
+            hasIcon={true}
+            icon={<img src="/icon_heart.svg" />}
+            />
 
-            {/* <Link
-              href="/"
-              className="text-white px-[24px] font-parkinsans font-bold bg-brand rounded-md h-[48px] flex items-center"
-            >
-              <span>Pridať inzerát</span>
-            </Link> */}
+            <Button
+              type="navbar"
+              text="Prihlásiť sa"
+              onClick={() => {}}
+              hasIcon={true}
+              icon={<img src="/icon_user.svg" />}
+            />
 
             <Button
               type="primary"
@@ -57,11 +50,6 @@ const Navbar = () => {
               onClick={() => {}}
             />
           </div>
-
-          {/* Hamburger - always visible */}
-          {/* <button className="text-white px-[24px] py-[17px] hover:text-gray-300 font-parkinsans font-bold flex items-center gap-[4px]">
-            <img src="/icon_hamburger-menu.svg" className="w-[24px] h-[24px]" />
-          </button> */}
 
             <Button
               type="navbar"
