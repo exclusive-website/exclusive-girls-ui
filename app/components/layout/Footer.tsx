@@ -1,3 +1,8 @@
+"use client";
+
+import { FaUser } from "react-icons/fa";
+import Button from "../micros/Button";
+
 const regions = {
   CZ: [
     "Prague",
@@ -104,24 +109,51 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-col items-start justify-top space-y-4">
-              <button className="bg-brand text-white py-2 px-4 rounded-lg font-bold hover:bg-brand-dark transition">
-                Pridať inzerát
-              </button>
+              <Button
+                onClick={() => console.log("Primary button clicked")}
+                type="primary"
+                hasIcon={true}
+                icon={<FaUser/>}
+              />
+              <Button
+                onClick={() => console.log("Primary button clicked")}
+                type="primary"
+                hasIcon={true}
+                icon={<FaUser/>}
+              />
+              <Button
+                onClick={() => console.log("Primary button clicked")}
+                type="secondary"
+                hasIcon={true}
+                icon={<FaUser/>}
+              />
+              <Button
+                onClick={() => console.log("Primary button clicked")}
+                type="primaryOutline"
+                hasIcon={true}
+                icon={<FaUser/>}
+              />
+              <Button
+                onClick={() => console.log("Primary button clicked")}
+                type="navbar"
+                hasIcon={true}
+                icon={<FaUser/>}
+              />
             </div>
           </div>
 
           <div className="grid grid-cols-3 md:flex py-8 border-b-text-gray-4">
-            <p className="font-semibold font-parkinsans px-4 text-sm text-white border-r-2 border-r-white text-center">
+            <p className="font-semibold font-parkinsans px-4 text-sm text-white hover:cursor-pointer border-r-2 border-r-white text-center">
               Všeobecné obchodné podmienky
             </p>
-            <p className="font-semibold font-parkinsans px-4 text-sm text-white border-r-2 border-r-white text-center">
+            <p className="font-semibold font-parkinsans px-4 text-sm text-white hover:cursor-pointer border-r-2 border-r-white text-center">
               Podmienky registrácie
             </p>
-            <p className="font-semibold font-parkinsans px-4 text-sm text-white ">
+            <p className="font-semibold font-parkinsans px-4 text-sm text-white hover:cursor-pointer">
               Právna doložka
             </p>
           </div>
-          <div className="flex py-4 text-gray-6 text-sm px-4">
+          <div className="flex py-4 text-text-gray2 text-sm px-4">
             Tieto stránky môžu obsahovať sexuálne explicitný textový alebo
             slovný materiál. Sú preto určené výhradne pre osoby staršie ako 18
             rokov. Prevádzkovateľ stránky nenesie zodpovednosť za akutálnosť a
