@@ -10,26 +10,25 @@ const Navbar = () => {
   const pathname = usePathname();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  // Disable scroll when filter is open
-  // useEffect(() => {
-  //   if (typeof window === "undefined") return;
+  useEffect(() => {
+    if (typeof window === "undefined") return;
 
-  //   const scrollBarWidth =
-  //     window.innerWidth - document.documentElement.clientWidth;
+    const scrollBarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
 
-  //   if (isFilterOpen) {
-  //     document.body.style.overflow = "hidden";
-  //     document.body.style.paddingRight = `${scrollBarWidth}px`;
-  //   } else {
-  //     document.body.style.overflow = "";
-  //     document.body.style.paddingRight = "";
-  //   }
+    if (isFilterOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = `${scrollBarWidth}px`;
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    }
 
-  //   return () => {
-  //     document.body.style.overflow = "";
-  //     document.body.style.paddingRight = "";
-  //   };
-  // }, [isFilterOpen]);
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    };
+  }, [isFilterOpen]);
 
   const isRoot = pathname === "/";
   const showFilterBtn = isRoot || pathname === "/results";
@@ -38,8 +37,8 @@ const Navbar = () => {
     <>
       <nav
         className={`${
-          isRoot ? "absolute" : "relative"}
-          w-full bg-black/60 z-10
+          isRoot ? "sticky top-0" : "sticky top-0"}
+          w-full bg-black/60 z-50
           after:content-['']
           after:absolute after:bottom-0 after:left-0
           after:w-full after:h-[2px]
