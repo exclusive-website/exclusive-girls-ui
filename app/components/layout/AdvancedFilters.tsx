@@ -42,7 +42,13 @@ const AdvancedFilters: FC<Props> = ({ onClose }) => {
   const items = ["Erotická masáž", "Striptíz", "Spoločnosť", "Escort", "Iné"];
 
   function onResetFilters(): void {
-    throw new Error("Function not implemented.");
+    setSelectedContacts([]);
+    setSelectedServices([]);
+    setSelectedPractices([]);
+    setSelectedLanguages([]);
+    setOther([]);
+    // Reset other states if needed
+    // e.g., reset distance, location, age, availability, etc.
   }
 
   function onApplyFilters(): void {
@@ -50,7 +56,16 @@ const AdvancedFilters: FC<Props> = ({ onClose }) => {
   }
 
   return (
-    <div className="fixed inset-0 z-50 bg-white overflow-auto transition-transform duration-300 sm:hidden">
+    <div
+  className="
+    fixed top-0 bottom-0 right-0 z-50
+    w-full sm:max-w-md
+    bg-white shadow-lg border-l border-gray-200
+    overflow-y-auto
+    transition-transform duration-300
+  "
+>
+
       {/* Header */}
       <div className="flex justify-between items-center p-4 border-b border-gray-200">
         <div className="flex items-center space-x-2">
@@ -255,7 +270,7 @@ const AdvancedFilters: FC<Props> = ({ onClose }) => {
       </div>
 
       {/* Footer */}
-      <div className="fixed bottom-0 left-0 right-0 flex justify-between items-center gap-x-4 p-4 bg-white shadow-lg border-t border-gray-200">
+      <div className=" bottom-0 left-0 right-0 flex justify-between items-center gap-x-4 p-4 bg-white shadow-lg border-t border-gray-200">
         <div className="w-full">
           <Button
             type="primary"
