@@ -2,6 +2,8 @@
 
 @theme {
   --color-brand: #ED217E;
+  --color-brand-light: #F45A9F;
+  --color-brand-dark: #C31167;
   --color-text-darkest: #262626;
   --color-text-darker: #303030;
   --color-text-dark: #474747;
