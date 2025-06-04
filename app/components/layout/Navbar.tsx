@@ -18,22 +18,18 @@ const Navbar = () => {
           href="/"
           className="text-white text-lg font-bold flex items-center gap-[8px]"
         >
-          <img
-            src="/logo_exclusive-girls.svg"
-            alt="Logo"
-          />
+          <img src="/logo_exclusive-girls.svg" alt="Logo" />
         </Link>
 
         <div className="flex items-center">
           {/* Desktop links - hidden on mobile */}
           <div className="hidden sm:flex flex-row items-center">
-
-            <Button 
-            type="navbar"
-            text="Obľúbené inzeráty"
-            onClick={() => {}}
-            hasIcon={true}
-            icon={<img src="/icon_heart.svg" />}
+            <Button
+              type="navbar"
+              text="Obľúbené inzeráty"
+              onClick={() => {}}
+              hasIcon={true}
+              icon={<img src="/icon_heart.svg" />}
             />
 
             <Button
@@ -44,19 +40,15 @@ const Navbar = () => {
               icon={<img src="/icon_user.svg" />}
             />
 
-            <Button
-              type="primary"
-              text="Pridať inzerát"
-              onClick={() => {}}
-            />
+            <Button type="primary" text="Pridať inzerát" onClick={() => {}} />
           </div>
 
-            <Button
-              type="navbar"
-              onClick={() => {}}
-              hasIcon={true}
-              icon={<img src="/icon_hamburger-menu.svg" />}
-            />
+          <Button
+            type="navbar"
+            onClick={() => {}}
+            hasIcon={true}
+            icon={<img src="/icon_hamburger-menu.svg" />}
+          />
         </div>
       </div>
     </nav>

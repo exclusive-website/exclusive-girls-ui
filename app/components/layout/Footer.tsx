@@ -2,6 +2,7 @@
 
 import { FaUser } from "react-icons/fa";
 import Button from "../micros/Button";
+import DistanceSlider from "../micros/DistanceSlider";
 
 const regions = {
   CZ: [
@@ -140,6 +141,14 @@ export default function Footer() {
                 type="navbar"
                 hasIcon={true}
                 icon={<FaUser/>}
+              />
+
+              <DistanceSlider
+                defaultValue={50}
+                min={0}
+                max={100}
+                step={1}
+                onChange={(value) => console.log("Distance changed:", value)}
               />
             </div>
           </div>
