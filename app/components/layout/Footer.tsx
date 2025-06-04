@@ -3,8 +3,14 @@
 import { FaUser } from "react-icons/fa";
 import Button from "../micros/Button";
 import DistanceSlider from "../micros/DistanceSlider";
+import RadioButton from "../micros/Radio";
+import { useState } from "react";
+
+
+
 
 const regions = {
+
   CZ: [
     "Prague",
     "Brno",
@@ -30,6 +36,9 @@ const regions = {
 };
 
 export default function Footer() {
+
+  const [selected, setSelected] = useState("option1");
+
 
   return (
     <>
@@ -150,6 +159,23 @@ export default function Footer() {
                 step={1}
                 onChange={(value) => console.log("Distance changed:", value)}
               />
+
+<RadioButton
+        id="option1"
+        name="choices"
+        value="option1"
+        checked={selected === "option1"}
+        onChange={setSelected}
+        label="Option 1"
+      />
+            <RadioButton
+        id="option2"
+        name="choices"
+        value="option2"
+        checked={selected === "option2"}
+        onChange={setSelected}
+        label="Option 2"
+      />
             </div>
           </div>
 
