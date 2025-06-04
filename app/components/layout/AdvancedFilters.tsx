@@ -170,7 +170,7 @@ const AdvancedFilters: FC<Props> = ({ onClose }) => {
           <span className="text-[10px] text-gray-500 uppercase font-parkinsans">
             Kontakt cez
           </span>
-          <div className="flex items-center justify-center gap-20 flex-wrap mt-4">
+          <div className="flex items-center justify-center gap-10 mt-4">
             {options.map((option) => (
               <CheckBox
                 key={option}

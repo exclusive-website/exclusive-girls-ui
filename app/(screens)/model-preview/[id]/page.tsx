@@ -8,7 +8,6 @@ import PhoneInput from "@/app/components/micros/PhoneInput";
 import SelectInput from "@/app/components/micros/SelectInput";
 import Input from "@/app/components/micros/Input";
 import { FaSearch } from "react-icons/fa";
-import { count } from "console";
 
 export default function ModelPreviewPage() {
   const params = useParams();
@@ -56,7 +55,7 @@ export default function ModelPreviewPage() {
   };
 
   return (
-    <div className="p-8 max-w-4xl mx-auto">
+    <div className="container w-full mx-auto py-8 px-4">
       <h1 className="text-3xl font-bold mb-4">{model?.name}</h1>
       <p>Age: {model?.age}</p>
       <p>Location: {model?.location}</p>

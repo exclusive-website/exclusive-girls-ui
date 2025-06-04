@@ -64,7 +64,7 @@ const Button: React.FC<ButtonProps> = ({
       )} ${className}`}
     >
       {hasIcon && icon && (
-        <span className="w-4 h-4">{icon}</span>
+        <span className="w-[24px] h-[24px]">{icon}</span>
       )}
       {text && <span>{text}</span>}
     </button>

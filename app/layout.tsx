@@ -8,8 +8,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className='w-full overflow-x-hidden'>
+      <body className='bg-[#262626] w-full'>
         <Navbar />
         {children}
         <Footer />
