@@ -8,10 +8,10 @@ export default function Home() {
   return (
     <>
       <div className="hero-section">
-        <div className="relative mt-[-80px] h-[100vh] flex flex-col justify-center items-center text-center bg-[url(/bg_hero.jpg)] bg-bottom bg-cover bg-no-repeat text-white px-4 sm:px-6 lg:px-8">
+        <div className="relative mt-[-150px] sm:mt-[-80px] h-[950px] flex flex-col justify-center items-center text-center bg-cover bg-bottom bg-no-repeat bg-[url(/bg_hero.jpg)] text-white px-2 p sm:px-6 lg:px-8">
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent z-0"></div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] leading-tight font-bold font-playfair z-10 max-w-[90%] sm:max-w-[700px] lg:max-w-[1440px] text-center relative">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] leading-tight font-bold font-playfair z-10 max-w-[100%] sm:max-w-[700px] lg:max-w-[1440px] text-center relative">
             Výber exkluzívnych dievčat, <br className="hidden sm:block" />
             ktoré vám splnia vaše{" "}
             <span className="relative inline-block">
