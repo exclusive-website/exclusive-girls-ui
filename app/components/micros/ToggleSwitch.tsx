@@ -5,6 +5,7 @@ interface ToggleSwitchProps {
   defaultChecked?: boolean;
   onToggle?: (checked: boolean) => void;
   label?: string;
+  type: "filter" | "profile";
 }
 
 const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
@@ -12,6 +13,7 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
   defaultChecked = false,
   onToggle,
   label,
+  type,
 }) => {
   const [checked, setChecked] = useState(defaultChecked);
 
@@ -21,9 +23,33 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
     if (onToggle) onToggle(newChecked);
   };
 
+  // Track & Dot styles
+  const trackColor = checked
+    ? type === "filter"
+      ? "bg-[#303030]"
+      : "bg-white"
+    : type === "filter"
+    ? "bg-[#DDDAD7]"
+    : "bg-[#6E6E6E]";
+
+  const dotColor = checked
+    ? type === "filter"
+      ? "bg-[#fff]"
+      : "bg-brand"
+    : "bg-[#fff]";
+
+  // Label style mapping
+  const labelStyle: Record<
+    ToggleSwitchProps["type"],
+    string
+  > = {
+    profile: "text-white font-[700] font-parkinsans text-[16px]",
+    filter: "text-black font-[400] font-parkinsans text-[16px]",
+  };
+
   return (
     <div className="flex items-center space-x-3">
-      <label htmlFor={id} className="relative inline-block w-14 h-8 cursor-pointer">
+      <label htmlFor={id} className="relative inline-block w-10 h-6 cursor-pointer">
         <input
           id={id}
           type="checkbox"
@@ -31,22 +57,22 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
           onChange={handleChange}
           className="sr-only"
         />
+
         {/* Track */}
-        <div
-          className={`block w-full h-full rounded-full transition-colors ${
-            checked ? "bg-white" : "bg-[#DDDAD7]"
-          }`}
-        ></div>
+        <div className={`block w-full h-full rounded-full transition-colors ${trackColor}`}></div>
 
         {/* Dot */}
         <div
-          className={`absolute top-1 left-1 w-6 h-6 rounded-full transition-transform ${
-            checked ? "translate-x-6 bg-pink-600" : "translate-x-0 bg-[#262626]"
-          }`}
+          className={`absolute top-1 left-1 w-4 h-4 rounded-full transition-transform transform ${
+            checked ? "translate-x-4" : "translate-x-0"
+          } ${dotColor}`}
         ></div>
       </label>
+
       {label && (
-        <span className="text-white text-[16px] select-none cursor-default font-parkinsans font-[700]">
+        <span
+          className={`text-[16px] select-none cursor-default font-parkinsans ${labelStyle[type]}`}
+        >
           {label}
         </span>
       )}

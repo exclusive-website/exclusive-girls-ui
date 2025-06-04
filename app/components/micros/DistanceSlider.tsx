@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 interface DistanceSliderProps {
+  title?: string;
+  value?: number;
   min?: number;
   max?: number;
   step?: number;
@@ -9,13 +11,15 @@ interface DistanceSliderProps {
 }
 
 const DistanceSlider: React.FC<DistanceSliderProps> = ({
+  title = "Vzdialenosť",
+  value: initialValue,
   min = 0,
   max = 200,
   step = 10,
   defaultValue = 50,
   onChange,
 }) => {
-  const [value, setValue] = useState(defaultValue);
+  const [value, setValue] = useState<number>(initialValue ?? defaultValue);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = Number(e.target.value);
@@ -24,8 +28,8 @@ const DistanceSlider: React.FC<DistanceSliderProps> = ({
   };
 
   return (
-    <div className="w-full px-4">
-      <label className="block mb-2 text-lg font-semibold text-black">
+    <div className="w-full w-full flex flex-col items-start justify-center gap-2">
+      <label className="block mb-2 text-[16px] text-black font-parkinsans font-light">
         V okolí {value} km
       </label>
       <input

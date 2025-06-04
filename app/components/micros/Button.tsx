@@ -1,5 +1,4 @@
 import React from "react";
-import { FaBars } from "react-icons/fa";
 
 interface ButtonProps {
   text?: string;
@@ -7,9 +6,10 @@ interface ButtonProps {
   type: "primary" | "secondary" | "primaryOutline" | "navbar";
   icon?: React.ReactNode;
   hasIcon?: boolean;
+  className?: string;
 }
 
-const styleTree: Record<string, string[]> = {
+const styleTree: Record<ButtonProps["type"], string[]> = {
   primary: [
     "bg-brand",
     "font-bold",
@@ -51,6 +51,7 @@ const Button: React.FC<ButtonProps> = ({
   type,
   icon,
   hasIcon,
+  className = "",
 }) => {
   const buttonStyle = styleTree[type];
 
@@ -60,14 +61,11 @@ const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       className={`flex items-center justify-center space-x-2 px-4 py-2 rounded-lg font-semibold transition ${buttonStyle.join(
         " "
-      )}`}
+      )} ${className}`}
     >
-      {/* Render icon only if icon is provided */}
       {hasIcon && icon && (
         <span className="w-4 h-4">{icon}</span>
       )}
-      
-      {/* Render text only if text is provided */}
       {text && <span>{text}</span>}
     </button>
   );

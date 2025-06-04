@@ -6,13 +6,25 @@ interface CheckBoxProps {
   label: string;
   checked: boolean;
   onChange: (checked: boolean) => void;
+  labelPosition?: "right" | "bottom"; // New prop
 }
 
-const CheckBox: React.FC<CheckBoxProps> = ({ id, label, checked, onChange }) => {
+const CheckBox: React.FC<CheckBoxProps> = ({
+  id,
+  label,
+  checked,
+  onChange,
+  labelPosition = "right", // Default to right
+}) => {
+  const isBottom = labelPosition === "bottom";
+
   return (
     <label
       htmlFor={id}
-      className="flex items-center space-x-2 cursor-pointer text-[20px] font-medium text-black"
+      className={`
+        flex ${isBottom ? "flex-col items-center gap-1" : "flex-row items-center space-x-2"}
+        cursor-pointer text-[16px] font-normal text-black
+      `}
     >
       <input
         type="checkbox"
