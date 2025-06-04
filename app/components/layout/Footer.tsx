@@ -5,6 +5,7 @@ import Button from "../micros/Button";
 import DistanceSlider from "../micros/DistanceSlider";
 import RadioButton from "../micros/Radio";
 import { useState } from "react";
+import CheckBox from "../micros/Checkbox";
 
 
 
@@ -38,7 +39,8 @@ const regions = {
 export default function Footer() {
 
   const [selected, setSelected] = useState("option1");
-
+  const [menChecked, setMenChecked] = useState(true);
+  const [womenChecked, setWomenChecked] = useState(true);
 
   return (
     <>
@@ -151,31 +153,6 @@ export default function Footer() {
                 hasIcon={true}
                 icon={<FaUser/>}
               />
-
-              <DistanceSlider
-                defaultValue={50}
-                min={0}
-                max={100}
-                step={1}
-                onChange={(value) => console.log("Distance changed:", value)}
-              />
-
-<RadioButton
-        id="option1"
-        name="choices"
-        value="option1"
-        checked={selected === "option1"}
-        onChange={setSelected}
-        label="Option 1"
-      />
-            <RadioButton
-        id="option2"
-        name="choices"
-        value="option2"
-        checked={selected === "option2"}
-        onChange={setSelected}
-        label="Option 2"
-      />
             </div>
           </div>
 
