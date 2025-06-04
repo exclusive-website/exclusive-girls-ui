@@ -36,7 +36,7 @@ const Navbar = () => {
 
   return (
     <>
-      {/* <nav
+      <nav
         className={`${
           isRoot ? "absolute" : "relative"}
           w-full bg-black/60 z-10
@@ -45,9 +45,9 @@ const Navbar = () => {
           after:w-full after:h-[2px]
           after:bg-[linear-gradient(to_right,_#ED217E,_#960346)]
           after:rounded-sm`}
-      > */}
+      >
 
-      <nav
+      {/* <nav
         className="
         flex flex-col sm:flex-row justify-between items-center
         h-auto sm:h-[80px] md:h-[100px]
@@ -58,7 +58,7 @@ const Navbar = () => {
           after:w-full after:h-[2px]
           after:bg-[linear-gradient(to_right,_#ED217E,_#960346)]
           after:rounded-sm"
-      >
+      > */}
         <div className="container mx-auto flex justify-between items-center p-4">
           <Link
             href="/"
