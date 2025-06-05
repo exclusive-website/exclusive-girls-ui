@@ -49,7 +49,10 @@ export default function Home() {
 
       <div className="relative z-10 w-full bg-radial-[at_50%_75%] from-brand-light via-brand to-brand-dark to-90% h-[412px] flex justify-center items-end">
         <div className="relative z-10 w-full px-4 -translate-y-[5%]">
-          <CardCarousel models={modelCards.slice(0, 15)} />
+          <CardCarousel models={modelCards.slice(0, 15).map(card => ({
+            ...card,
+            isAvailable: typeof card.isAvailable === "boolean" ? card.isAvailable : false,
+          }))} />
         </div>
       </div>
 
@@ -57,7 +60,7 @@ export default function Home() {
         {modelCards.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 max-w-[1440px] mx-auto justify-center">
             {modelCards.map((card) => {
-              return <Card key={card.id} {...card} />;
+              return <Card key={card.id} {...card} isAvailable={typeof card.isAvailable === "boolean" ? card.isAvailable : false} />;
             })}
           </div>
         ) : (

@@ -5,19 +5,28 @@ import { FaArrowRight, FaArrowLeft, FaMapPin } from "react-icons/fa6";
 
 export interface CardProps {
   id: string;
-  name: string;
+  nickname: string;
   age: number;
-  location: string;
-  image: string[];
-  topped: boolean;
-  new: boolean;
-  aviailable: boolean;
-  description: {
-    weight: string;
-    height: string;
-    breast: string;
-    hair: string[];
-  };
+  city: string;
+  images: string[];
+  isNew: boolean;
+  isTopped: boolean;
+  isAvailable: boolean; // Changed from 'isAvailable' to 'availability'
+  weight: string;
+  height: string;
+  chestSize: string;
+  hairColor: string[];
+  hasTattoo: boolean;
+  hasPiercing: boolean;
+  isSmoker: boolean;
+  shaveStatus: string;
+  experience: string;
+  serviceType: string;
+  nationality: string;
+  languages: string[];
+  servicesFor: string[];
+  otherSpecialServices: string[];
+  phoneNumber: string;
 }
 
 export default function Card(props: CardProps) {
@@ -30,24 +39,38 @@ export default function Card(props: CardProps) {
     }
 
   const {
-    name,
+    nickname,
     age,
-    location,
-    image,
-    topped,
-    new: isNew,
-    aviailable,
-    description,
+    city,
+    images,
+    isTopped,
+    isNew,
+    weight,
+    height,
+    chestSize,
+    isAvailable,
+    hairColor,
+    hasTattoo,
+    hasPiercing,
+    isSmoker,
+    shaveStatus,
+    experience,
+    serviceType,
+    nationality,
+    languages,
+    servicesFor,
+    otherSpecialServices,
+    phoneNumber,
   } = props;
 
   const prevImage = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setCurrentImageIndex((currentImageIndex - 1 + image.length) % image.length);
+    setCurrentImageIndex((currentImageIndex - 1 + images.length) % images.length);
   };
 
   const nextImage = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setCurrentImageIndex((currentImageIndex + 1) % image.length);
+    setCurrentImageIndex((currentImageIndex + 1) % images.length);
   };
 
   return (
@@ -61,8 +84,8 @@ export default function Card(props: CardProps) {
     >
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none rounded-lg"></div>
       <img
-        src={image[currentImageIndex]}
-        alt={name}
+        src={images[currentImageIndex]}
+        alt={nickname}
         className="w-full h-full object-cover rounded-lg"
         draggable={false}
       />
@@ -73,7 +96,7 @@ export default function Card(props: CardProps) {
             Nová
           </span>
         )}
-        {topped && (
+        {isTopped && (
           <span className="bg-text-darkest text-white px-4 py-1 text-regular font-bold">
             Top
           </span>
@@ -86,13 +109,13 @@ export default function Card(props: CardProps) {
         }`}
       >
         <p className="text-lg md:text-2xl font-bold font-playfair">
-          {name} ({age})
+          {nickname} ({age})
         </p>
         <div className="flex mb-2 items-center">
           <FaMapPin className="text-light-2 w-4 h-4 mr-2" />
-          <p className="text-regular">{location}</p>
+          <p className="text-regular">{city}</p>
         </div>
-        {aviailable ? (
+        {isAvailable ? (
         <div className="flex p-2 bg-white rounded-full">
             <span className="rounded-full bg-brand w-[16px] h-[16px] mr-2"></span>
             <p className="font-parkinsans text-xs text-light text-black">
@@ -132,25 +155,25 @@ export default function Card(props: CardProps) {
             <div className="flex justify-between font-parkinsans text-sm">
               <p className="w-full">Váha</p>
               <strong className="w-full flex text-start">
-                {description.weight}kg
+                {weight}kg
               </strong>
             </div>
             <div className="flex justify-between font-parkinsans text-sm">
               <p className="w-full">Výška</p>
               <strong className="w-full flex text-start">
-                {description.weight}cm
+                {height}cm
               </strong>
             </div>
             <div className="flex justify-between font-parkinsans text-sm">
               <p className="w-full">Prsia</p>
               <strong className="w-full flex text-start">
-                {description.breast}
+                {chestSize}
               </strong>
             </div>
             <div className="flex justify-between font-parkinsans text-sm">
               <p className="w-full">Vlasy</p>
               <strong className="w-full flex text-start">
-                {description.hair.join(", ")}
+                {hairColor.join(", ")}
               </strong>
             </div>
           </div>
