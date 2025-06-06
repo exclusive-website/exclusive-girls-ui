@@ -89,15 +89,17 @@ const MediaSlider: React.FC<MediaSliderProps> = ({ media }) => {
         >
           <FaArrowLeft className="w-4 h-4 text-black" />
         </button>
-        <div className="w-[600px] overflow-hidden transition-transform duration-300">
+        <div className="overflow-hidden transition-transform duration-300">
           {typeof currentMedia === "string" ? (
             <Image
               width={600}
               height={800}
+              quality={100} // High quality
               src={currentMedia}
               alt="Model preview"
-              className="w-[600px] h-[800px] object-cover object-center transition-all duration-500 ease-in-out"
+              className="object-cover object-center transition-all duration-500 ease-in-out"
             />
+            
           ) : (
             <video
               src={currentMedia.url}
@@ -105,6 +107,8 @@ const MediaSlider: React.FC<MediaSliderProps> = ({ media }) => {
               controls
               muted
               loop
+              width={600}
+              height={800}
             />
           )}
         </div>
@@ -119,7 +123,7 @@ const MediaSlider: React.FC<MediaSliderProps> = ({ media }) => {
       {/* Thumbnails with horizontal scroll */}
       <div
         ref={thumbnailContainerRef}
-        className="flex justify-start mt-4 space-x-2 pb-2 max-w-[600px] overflow-x-auto scrollbar-hide transition-all duration-300 ease-in-out"
+        className="hidden sm:flex md:flex justify-start mt-4 space-x-2 pb-2 max-w-[600px] overflow-x-auto scrollbar-hide transition-all duration-300 ease-in-out"
         style={{ scrollSnapType: "x mandatory" }}
       >
         {visibleThumbnails.map((item, index) => (
@@ -137,10 +141,11 @@ const MediaSlider: React.FC<MediaSliderProps> = ({ media }) => {
                   alt={`Thumbnail ${thumbnailStartIndex + index}`}
                   width={191}
                   height={271}
+                  quality={100} // High quality
                   className="w-[191px] h-[271px] object-cover rounded-lg transition-transform duration-200 hover:scale-105"
                 />
                 {/* Gradient Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 h-[500px] bg-gradient-to-t from-black via-transparent to-transparent opacity-80 rounded-lg"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-[600px] bg-gradient-to-t from-black via-transparent to-transparent opacity-100 rounded-lg"></div>
               </div>
             ) : (
               <div className="relative inline-block">
@@ -153,7 +158,7 @@ const MediaSlider: React.FC<MediaSliderProps> = ({ media }) => {
                   controls
                 />
                 {/* Gradient Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 h-[500px] bg-gradient-to-t from-black via-transparent to-transparent opacity-80 rounded-lg"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-[600px] bg-gradient-to-t from-black via-transparent to-transparent opacity-80 rounded-lg"></div>
               </div>
             )}
           </div>
